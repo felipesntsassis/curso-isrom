@@ -24,6 +24,27 @@ public class Usuario {
 
 	private String email;
 
+	private String senha;
+
+
+	public Usuario() {
+	}
+
+	public Usuario(Usuario usuario) {
+		this.nome = usuario.getNome();
+		this.idade = usuario.getIdade();
+		this.email = usuario.getEmail();
+		this.senha = usuario.getSenha();
+		this.perfis = usuario.getPerfis();
+	}
+
+	public Usuario(String nome, String email, String senha, List<Perfil> perfis) {
+		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+		this.perfis = perfis;
+	}
+
 	@DBRef
 	private List<Perfil> perfis;
 
@@ -65,5 +86,13 @@ public class Usuario {
 
 	public void setPerfis(List<Perfil> perfis) {
 		this.perfis = perfis;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 }

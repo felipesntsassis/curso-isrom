@@ -8,6 +8,8 @@ import br.com.a3.spring.aula7.entity.Perfil;
 
 public interface PerfilRepository extends MongoRepository<Perfil, String> {
 
-	List<Perfil> findByNomeLikeIgnoreCase(String nome);
+	public List<Perfil> findByNomeLikeIgnoreCase(String nome);
+
+	public Perfil findByNome(String string);
 
 }
