@@ -1,6 +1,9 @@
 package br.com.a3.spring.aula6.entity;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -14,9 +17,15 @@ public class Usuario {
 
 	@Id
 	private String id;
+
 	private String nome;
+
 	private Integer idade;
+
 	private String email;
+
+	@DBRef
+	private List<Perfil> perfis;
 
 	public String getId() {
 		return id;
@@ -48,5 +57,13 @@ public class Usuario {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public List<Perfil> getPerfis() {
+		return perfis;
+	}
+
+	public void setPerfis(List<Perfil> perfis) {
+		this.perfis = perfis;
 	}
 }
