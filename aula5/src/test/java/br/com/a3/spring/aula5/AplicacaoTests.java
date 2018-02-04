@@ -1,4 +1,4 @@
-package br.com.a3.spring.aula2;
+package br.com.a3.spring.aula5;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

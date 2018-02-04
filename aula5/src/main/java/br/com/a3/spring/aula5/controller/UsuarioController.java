@@ -3,6 +3,7 @@ package br.com.a3.spring.aula5.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,16 @@ public class UsuarioController {
 	@RequestMapping(value = "/usuario", method = RequestMethod.GET)
 	public List<Usuario> listarUsuario() {
 		return this.usuarioService.listarUsuarios();
+	}
+
+	@RequestMapping(value = "/usuario/{page}/{count}", method = RequestMethod.GET)
+	public Page<Usuario> listarUsuarioPaginado(@PathVariable int page, @PathVariable int count) {
+		return this.usuarioService.listarPaginada(count, page);
+	}
+
+	@RequestMapping(value = "/usuario/{nome}/nome", method = RequestMethod.GET)
+	public List<Usuario> listarUsuarioPorNome(@PathVariable String nome) {
+		return this.usuarioService.buscarPorNome(nome);
 	}
 
 	@RequestMapping(value = "/usuario", method = RequestMethod.POST)
